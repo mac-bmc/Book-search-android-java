@@ -23,7 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Book_details extends AppCompatActivity {
+public class BookDetails extends AppCompatActivity {
 
     String imageUrl;
 
@@ -32,13 +32,13 @@ public class Book_details extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_details);
-        TextView titleMain = findViewById(R.id.titlemain);
-        TextView publisher = findViewById(R.id.detailpublisher);
-        TextView pageNo = findViewById(R.id.pageno);
+        TextView titleMain = findViewById(R.id.titleMain);
+        TextView publisher = findViewById(R.id.detailPublisher);
+        TextView pageNo = findViewById(R.id.pageNo);
         ImageView bookCoverImageView = findViewById(R.id.bookCoverImageView);
         TextView title = findViewById(R.id.title);
-        ImageButton imageSearchButton = findViewById(R.id.imagesearchButton);
-        TextView authorMain = findViewById(R.id.detailauthor);
+        ImageButton imageSearchButton = findViewById(R.id.imageSearchButton);
+        TextView authorMain = findViewById(R.id.detailAuthor);
         titleMain.setText(Objects.requireNonNull(getIntent().getExtras()).getString("title"));
         title.setText(Objects.requireNonNull(getIntent().getExtras()).getString("title"));
         pageNo.setText(Objects.requireNonNull(getIntent().getExtras()).getString("pageNo"));
@@ -75,7 +75,7 @@ public class Book_details extends AppCompatActivity {
     }
 
     public Uri getLocalBitmapUri(ImageView imageView) {
-        Context context = Book_details.this;
+        Context context = BookDetails.this;
         Drawable drawable = imageView.getDrawable();
         Bitmap bmp;
         if (drawable instanceof BitmapDrawable) {

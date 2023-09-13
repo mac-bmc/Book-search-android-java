@@ -24,7 +24,7 @@ import java.util.List;
 
 public class BookHomeActivity extends AppCompatActivity {
 
-    private static final String BASE_URL = "https://openlibrary.org/";
+    private static final String baseUrl = "https://openlibrary.org/";
     List<Book> books;
     private BookAdapter bookAdapter;
     private ApiInterface openLibraryApi;
@@ -40,13 +40,13 @@ public class BookHomeActivity extends AppCompatActivity {
         recyclerView.setAdapter(bookAdapter);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         openLibraryApi = retrofit.create(ApiInterface.class);
-        ImageButton search =findViewById(R.id.search);
-        TextView searchResult =findViewById(R.id.searchres);
+        ImageButton search = findViewById(R.id.search);
+        TextView searchResult = findViewById(R.id.searchres);
         SearchView searchView = findViewById(R.id.searchView);
         search.setOnClickListener(view -> searchView.setVisibility(View.VISIBLE));
 

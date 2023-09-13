@@ -6,4 +6,24 @@
     <string name="login_successful">"Login successful "</string>
     <string name="username">username</string>
     <string name="share_failed">Share failed</string>
+    <string name="book_title">Book title</string>
+    <string name="searchImage">searchImage</string>
+    <string name="coverImage">coverImage</string>
+    <string name="book_titles">Book title</string>
+    <string name="author">author</string>
+    <string name="published_by">Published by</string>
+    <string name="publisher">publisher</string>
+    <string name="no_of_pages">No.of pages:</string>
+    <string name="pg">pg</string>
+    <string name="bookSearch">Book search</string>
+    <string name="search">Search</string>
+    <string name="signIn">Sign in</string>
+    <string name="usernameXml">Username</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="logout">Logout</string>
+    <string name="bookSearchWelcome">Book Search</string>
+    <string name="authorRecycler">Author</string>
+    <string name="bookTitle">Book Title</string>
+    <string name="bookCover">bookCover</string>
 </resources>

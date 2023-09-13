@@ -15,23 +15,21 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        EditText username =  findViewById(R.id.usrnametext);
-        EditText password =  findViewById(R.id.passtext);
+        EditText username = findViewById(R.id.usernameText);
+        EditText password = findViewById(R.id.passText);
 
-        Button loginbutton =  findViewById(R.id.Signinbtn);
+        Button loginbutton = findViewById(R.id.SignInBtn);
 
         loginbutton.setOnClickListener(view -> {
 
-            if(username.getText().toString().trim().length()==0||password.getText().toString().trim().length()==0)
-            {
+            if (username.getText().toString().trim().length() == 0 || password.getText().toString().trim().length() == 0) {
                 Toast.makeText(LoginActivity.this, getString(R.string.login_failed),
                         Toast.LENGTH_SHORT).show();
-            }
-            else {
-                Toast.makeText(LoginActivity.this, getString(R.string.login_successful),Toast.LENGTH_SHORT).show();
-                String uname=username.getText().toString();
-                Intent intent = new Intent(LoginActivity.this,WelcomeUserActivity.class);
-                intent.putExtra(getString(R.string.username),uname);
+            } else {
+                Toast.makeText(LoginActivity.this, getString(R.string.login_successful), Toast.LENGTH_SHORT).show();
+                String uname = username.getText().toString();
+                Intent intent = new Intent(LoginActivity.this, WelcomeUserActivity.class);
+                intent.putExtra(getString(R.string.username), uname);
                 startActivity(intent);
             }
 

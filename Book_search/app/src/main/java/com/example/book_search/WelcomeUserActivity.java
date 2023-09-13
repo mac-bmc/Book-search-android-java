@@ -25,8 +25,8 @@ public class WelcomeUserActivity extends AppCompatActivity {
 
         userName.setText(getString(R.string.welcome, name));
 
-        Button logout = (Button) findViewById(R.id.logoutbtn);
-        Button booksearchbutton = (Button) findViewById(R.id.booksearchbtn);
+        Button logout = findViewById(R.id.logoutBtn);
+        Button booksearchbutton = findViewById(R.id.bookSearchBtn);
         booksearchbutton.setOnClickListener(view -> {
             Intent intent = new Intent(WelcomeUserActivity.this, BookHomeActivity.class);
             startActivity(intent);

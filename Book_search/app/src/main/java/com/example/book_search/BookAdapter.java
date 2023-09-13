@@ -79,7 +79,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
                     clickedItem = books.get(position);
 
                 }
-                Intent intent = new Intent(context, Book_details.class);
+                Intent intent = new Intent(context, BookDetails.class);
                 intent.putExtra("title", clickedItem.getTitle());
                 intent.putExtra("author", clickedItem.getAuthorName());
                 intent.putExtra("imageUrl", clickedItem.getCoverImageUrl());

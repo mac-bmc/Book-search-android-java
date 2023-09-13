@@ -1,14 +1,16 @@
 package com.example.book_search;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
 @SuppressWarnings("unused")
 
 public class Book {
     private String title;
     @SerializedName("number_of_pages_median")
     private String pageCountMedian;
-    
+
     private List<String> publisher;
     private String author;
     @SerializedName("author_name")
@@ -20,24 +22,24 @@ public class Book {
     @SerializedName("edition_key")
     private List<String> editionKey;
     private List<String> isbn;
-    private String cover_edition_key;
+    @SerializedName("cover_edition_key")
+    private String coverEditionKey;
 
     public Book() {
     }
 
 
     public String getPageCountMedian() {
-        if(pageCountMedian ==null)
-        {return "NA";}
+        if (pageCountMedian == null) {
+            return "NA";
+        }
         return pageCountMedian;
     }
 
     public String getPublisher() {
-        if(publisher==null)
-        {
+        if (publisher == null) {
             return "NA";
-        }
-        else {
+        } else {
 
             return publisher.get(0);
         }
@@ -46,56 +48,44 @@ public class Book {
     public String getTitle() {
         return title;
     }
-    
+
 
     public String getAuthorName() {
         int i;
-        if(authorName ==null)
-        {
+        if (authorName == null) {
             return null;
+        } else {
+            for (i = 0; i < authorName.size(); i++) {
+                author = authorName.get(i);
+            }
+            return author;
         }
-        else {
-        for(i=0; i< authorName.size(); i++)
-        {
-            author= authorName.get(i);
-        }
-        return author;
-    }}
-    
+    }
 
-    
 
     public String getCoverImageUrl() {
 
         String adder;
         String coverImageUrl;
-        if(cover_edition_key!=null){
-        coverImageUrl = "http://covers.openlibrary.org/b/olid/"+cover_edition_key+"-M.jpg";
-        } else if (editionKey !=null)
-        {
+        if (coverEditionKey != null) {
+            coverImageUrl = "http://covers.openlibrary.org/b/olid/" + coverEditionKey + "-M.jpg";
+        } else if (editionKey != null) {
             adder = editionKey.get(0);
-            coverImageUrl ="http://covers.openlibrary.org/b/olid/"+ adder +"-M.jpg";
-        }
-        else if (isbn!=null)
-        {
+            coverImageUrl = "http://covers.openlibrary.org/b/olid/" + adder + "-M.jpg";
+        } else if (isbn != null) {
             adder = isbn.get(0);
-            coverImageUrl ="http://covers.openlibrary.org/b/isbn/"+ adder +"-M.jpg";
+            coverImageUrl = "http://covers.openlibrary.org/b/isbn/" + adder + "-M.jpg";
 
-        }
-        else if (idGoodreads !=null)
-        {
+        } else if (idGoodreads != null) {
             adder = idGoodreads.get(0);
-            coverImageUrl ="http://covers.openlibrary.org/b/isbn/"+ adder +"-M.jpg";
+            coverImageUrl = "http://covers.openlibrary.org/b/isbn/" + adder + "-M.jpg";
 
-        }
-        else if (idLibrarything !=null)
-        {
+        } else if (idLibrarything != null) {
             adder = idLibrarything.get(0);
-            coverImageUrl ="http://covers.openlibrary.org/b/isbn/"+ adder +"-M.jpg";
+            coverImageUrl = "http://covers.openlibrary.org/b/isbn/" + adder + "-M.jpg";
 
-        }
-        else {
-            coverImageUrl ="R.drawable.error";
+        } else {
+            coverImageUrl = "R.drawable.error";
         }
         return coverImageUrl;
 
