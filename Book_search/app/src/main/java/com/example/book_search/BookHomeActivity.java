@@ -1,10 +1,12 @@
 package com.example.book_search;
 
-import android.content.Context;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,19 +25,16 @@ import java.util.List;
 public class BookHomeActivity extends AppCompatActivity {
 
     private static final String BASE_URL = "https://openlibrary.org/";
-
-    private RecyclerView recyclerView;
-    Context context;
     List<Book> books;
     private BookAdapter bookAdapter;
-    private OpenLibraryApi openLibraryApi;
+    private ApiInterface openLibraryApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_home_activity);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         bookAdapter = new BookAdapter(this);
         recyclerView.setAdapter(bookAdapter);
@@ -45,21 +44,16 @@ public class BookHomeActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        openLibraryApi = retrofit.create(OpenLibraryApi.class);
-        ImageButton search=(ImageButton) findViewById(R.id.search);
-        TextView searchres=(TextView) findViewById(R.id.searchres);
-        SearchView searchView = (SearchView) findViewById(R.id.searchView);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                searchView.setVisibility(View.VISIBLE);
-            }
-        });
+        openLibraryApi = retrofit.create(ApiInterface.class);
+        ImageButton search =findViewById(R.id.search);
+        TextView searchResult =findViewById(R.id.searchres);
+        SearchView searchView = findViewById(R.id.searchView);
+        search.setOnClickListener(view -> searchView.setVisibility(View.VISIBLE));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                searchres.setText(query);
+                searchResult.setText(query);
                 performBookSearch(query);
 
                 return true;
@@ -77,25 +71,22 @@ public class BookHomeActivity extends AppCompatActivity {
         Call<SearchResponse> call = openLibraryApi.searchBooks(query);
         call.enqueue(new Callback<SearchResponse>() {
             @Override
-            public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
+            public void onResponse(@NonNull Call<SearchResponse> call, @NonNull Response<SearchResponse> response) {
                 if (response.isSuccessful()) {
-                    books = response.body().getBooks();
+                    books = response.body() != null ? response.body().getBooks() : null;
                     bookAdapter.setBooks(books);
                 } else {
-                    // Handle API errors here
+                    Toast.makeText(BookHomeActivity.this, "API failed",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<SearchResponse> call, Throwable t) {
-                // Handle network or unexpected errors here
+            public void onFailure(@NonNull Call<SearchResponse> call, @NonNull Throwable t) {
+                Toast.makeText(BookHomeActivity.this, "API failed",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
-    public void onclick(Book book)
-    {
-        Toast.makeText(BookHomeActivity.this,"item clicked",
-                Toast.LENGTH_SHORT).show();
 
-    }
 }
