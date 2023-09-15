@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Book-search-kotlin</string>
+    <string name="logout">logout</string>
+    <string name="bookSearch">BookSearch</string>
+    <string name="welcome">Welcome</string>
+    <string name="bookSearchApplication">Book Search Application</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+</resources>
