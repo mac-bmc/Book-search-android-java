@@ -1,6 +1,7 @@
 package com.example.book_search_kotlin
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.widget.SearchView
@@ -32,7 +33,8 @@ class BookSearchActivity : AppCompatActivity() {
             override fun onQueryTextSubmit(query: String): Boolean {
                 searchRes.setText(query)
                 val apiClient = ApiClient(this@BookSearchActivity)
-                apiClient.performBookSearch(query,bookAdapter,)
+                apiClient.performBookSearch(query,bookAdapter)
+                Log.d("After book search","$query")
 
                 return true
             }
