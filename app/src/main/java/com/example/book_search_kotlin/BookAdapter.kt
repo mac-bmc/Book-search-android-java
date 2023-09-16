@@ -10,15 +10,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class BookAdapter(private val context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHolder>(){
+class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHolder>(){
 
 
-    private var books: List<BookModel>?=null
-    public var bookModel : BookModel? = null
+    public var booksList: List<BookModel>?=null
+    private var bookModel : BookModel? = null
 
     public fun setBooks(books : List<BookModel>?)
     {
-        this.books=books
+        this.booksList=books
         notifyDataSetChanged()
 
     }
@@ -28,11 +28,11 @@ class BookAdapter(private val context: Context) :  RecyclerView.Adapter<BookAdap
         val context: Context = parent.context
         val inflater = LayoutInflater.from(context)
         val bookView : View = inflater.inflate(R.layout.recyclerview,parent,false)
-        return ViewHolder(bookView,books)
+        return ViewHolder(bookView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        bookModel = books?.get(position)
+        bookModel = booksList?.get(position)
         holder.titleTextView.setText(bookModel?.getTitle())
         holder.authorTextView.setText(bookModel?.getAuthor())
 
@@ -44,11 +44,11 @@ class BookAdapter(private val context: Context) :  RecyclerView.Adapter<BookAdap
     }
 
     override fun getItemCount(): Int {
-        return if (books != null) books!!.size else 0
+        return if (booksList != null) booksList!!.size else 0
     }
 
 
-   inner class ViewHolder(itemView: View,books:List<BookModel>?) : RecyclerView.ViewHolder(itemView) {
+   inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var titleTextView: TextView= itemView.findViewById(R.id.titleTextView)
         var authorTextView: TextView=itemView.findViewById(R.id.authorTextView)
         var coverImageView: ImageView=itemView.findViewById(R.id.bookCoverImageView)
@@ -58,7 +58,7 @@ class BookAdapter(private val context: Context) :  RecyclerView.Adapter<BookAdap
             itemView.setOnClickListener(){
                 val position : Int = absoluteAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    clickedItem  =books!!.get(position)
+                    clickedItem  =booksList!!.get(position)
                 }
                 //Log.d("books","Item ${books!!.get(position).getTitle()}")
                 Log.d("ClickedItem","Item ${clickedItem.getTitle()} clicked")
