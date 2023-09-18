@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"
             android:contentDescription="search"
+            android:visibility="visible"
             app:srcCompat="@drawable/baseline_search_24"
             tools:ignore="ImageContrastCheck" />
 

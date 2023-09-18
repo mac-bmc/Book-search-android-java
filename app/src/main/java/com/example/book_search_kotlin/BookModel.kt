@@ -33,6 +33,8 @@ class BookModel {
     }
 
     fun getPageNumber(): String? {
+        if(pageCountMedian==null)
+        {return "NA"}
         return pageCountMedian
     }
 

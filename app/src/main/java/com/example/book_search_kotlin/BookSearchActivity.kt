@@ -27,6 +27,7 @@ class BookSearchActivity : AppCompatActivity() {
 
         search.setOnClickListener(){
             searchView.visibility=View.VISIBLE
+            search.visibility=View.INVISIBLE
         }
         searchView.setOnQueryTextListener(object :
             SearchView.OnQueryTextListener {
