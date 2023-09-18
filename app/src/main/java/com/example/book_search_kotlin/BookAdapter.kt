@@ -1,6 +1,7 @@
 package com.example.book_search_kotlin
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +29,7 @@ class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHol
         val context: Context = parent.context
         val inflater = LayoutInflater.from(context)
         val bookView : View = inflater.inflate(R.layout.recyclerview,parent,false)
-        return ViewHolder(bookView)
+        return ViewHolder(bookView,context)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -48,7 +49,7 @@ class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHol
     }
 
 
-   inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+   inner class ViewHolder(itemView: View,context: Context) : RecyclerView.ViewHolder(itemView) {
         var titleTextView: TextView= itemView.findViewById(R.id.titleTextView)
         var authorTextView: TextView=itemView.findViewById(R.id.authorTextView)
         var coverImageView: ImageView=itemView.findViewById(R.id.bookCoverImageView)
@@ -62,6 +63,13 @@ class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHol
                 }
                 //Log.d("books","Item ${books!!.get(position).getTitle()}")
                 Log.d("ClickedItem","Item ${clickedItem.getCoverImage()} clicked")
+                val intent = Intent(context,BookDetailsActivity::class.java)
+                intent.putExtra("title", clickedItem.getTitle())
+                intent.putExtra("author", clickedItem.getAuthor())
+                intent.putExtra("imageUrl", clickedItem.getCoverImage())
+                intent.putExtra("publisher", clickedItem.getPublisher())
+                intent.putExtra("pageNo", clickedItem.getPageNumber())
+                context.startActivity(intent)
 
             }
         }

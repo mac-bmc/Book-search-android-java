@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookDetailsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#808080"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="book_title"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:visibility="visible" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/imageShareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:autofillHints="hi"
+        android:contentDescription="searchImage"
+        app:srcCompat="@drawable/baseline_share_24"
+        tools:ignore="ImageContrastCheck"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/bookCoverImageView"
+        android:layout_width="200sp"
+        android:layout_height="200sp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        android:contentDescription="coverImage"
+        android:scaleType="centerCrop"
+        android:src="@drawable/placeholder_image" />
+
+    <TextView
+        android:id="@+id/titleMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bookCoverImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:hint="book_titles"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@id/detailAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleMain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5sp"
+        android:hint="author"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="2sp"
+        android:layout_below="@+id/detailAuthor"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:background="#757373"
+        android:orientation="horizontal"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/published"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5sp"
+        android:text="published_by"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/detailPublisher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/published"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5sp"
+        android:hint="publisher"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/pgPlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailPublisher"
+        android:layout_centerHorizontal="true"
+        android:text="no_of_pages"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/pageNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailPublisher"
+        android:layout_toEndOf="@+id/pgPlaceholder"
+        android:hint="pg"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

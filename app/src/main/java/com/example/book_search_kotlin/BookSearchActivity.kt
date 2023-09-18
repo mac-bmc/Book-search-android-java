@@ -31,7 +31,7 @@ class BookSearchActivity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object :
             SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                searchRes.setText(query)
+                searchRes.text = query
                 val apiClient = ApiClient(this@BookSearchActivity)
                 apiClient.performBookSearch(query,bookAdapter)
                 Log.d("After book search","$query")
