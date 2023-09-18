@@ -61,7 +61,7 @@ class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHol
                     clickedItem  =booksList!!.get(position)
                 }
                 //Log.d("books","Item ${books!!.get(position).getTitle()}")
-                Log.d("ClickedItem","Item ${clickedItem.getTitle()} clicked")
+                Log.d("ClickedItem","Item ${clickedItem.getCoverImage()} clicked")
 
             }
         }
