@@ -1,8 +1,8 @@
 package com.example.book_search_kotlin
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +17,7 @@ class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHol
     public var booksList: List<BookModel>?=null
     private var bookModel : BookModel? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     public fun setBooks(books : List<BookModel>?)
     {
         this.booksList=books
@@ -34,11 +35,13 @@ class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHol
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         bookModel = booksList?.get(position)
-        holder.titleTextView.setText(bookModel?.getTitle())
-        holder.authorTextView.setText(bookModel?.getAuthor())
+        val fetchData = bookModel?.let { FetchData(it) }
+        holder.titleTextView.text = bookModel?.title
+        holder.authorTextView.text = bookModel?.authorName?.get(0)
+
 
         Glide.with(holder.coverImageView.context)
-            .load(bookModel?.getCoverImage())
+            .load(fetchData?.getCoverImage())
             .error(R.drawable.error_image)
             .placeholder(R.drawable.placeholder_image)
             .into(holder.coverImageView)
@@ -61,14 +64,13 @@ class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHol
                 if (position != RecyclerView.NO_POSITION) {
                     clickedItem  =booksList!!.get(position)
                 }
-                //Log.d("books","Item ${books!!.get(position).getTitle()}")
-                Log.d("ClickedItem","Item ${clickedItem.getCoverImage()} clicked")
+                //Log.d("ClickedItem","Item ${clickedItem.getCoverImage()} clicked")
                 val intent = Intent(context,BookDetailsActivity::class.java)
-                intent.putExtra("title", clickedItem.getTitle())
-                intent.putExtra("author", clickedItem.getAuthor())
-                intent.putExtra("imageUrl", clickedItem.getCoverImage())
-                intent.putExtra("publisher", clickedItem.getPublisher())
-                intent.putExtra("pageNo", clickedItem.getPageNumber())
+                intent.putExtra("title", clickedItem.title)
+                intent.putExtra("author", clickedItem.authorName?.get(0))
+                intent.putExtra("imageUrl", FetchData(clickedItem).getCoverImage())
+                intent.putExtra("publisher", clickedItem.publisher?.get(0))
+                intent.putExtra("pageNo", clickedItem.pageCountMedian)
                 context.startActivity(intent)
 
             }

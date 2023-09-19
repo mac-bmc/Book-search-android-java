@@ -16,7 +16,7 @@ class WelcomeActivity : AppCompatActivity() {
         val bookSearchBtn: Button=findViewById(R.id.bookSearchBtn)
         val logoutButton: Button=findViewById(R.id.logoutBtn)
         val username=intent.getStringExtra(paramUsername)
-        welcomeText.text = getString(R.string.welcome)+""+username
+        welcomeText.text = getString(R.string.welcome)+" "+username
         bookSearchBtn.setOnClickListener(){
             val intent = Intent(this@WelcomeActivity,BookSearchActivity::class.java)
             startActivity(intent)
