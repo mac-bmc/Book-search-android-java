@@ -14,43 +14,41 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.util.Objects
 
-@Suppress("UNREACHABLE_CODE")
-class ImageSharing(private val context : Context, private val imageView: ImageView) {
-    fun getBitmapUrl(title:String) {
+class ImageSharing(private val context: Context, private val imageView: ImageView) {
+    fun getBitmapUrl(title: String) {
         val drawable = imageView.drawable
-        var bitmap : Bitmap?=null
-        var bitmapUri : Uri?=null
+        var bitmap: Bitmap? = null
+        var bitmapUri: Uri? = null
         if (drawable is BitmapDrawable) {
             bitmap = (imageView.drawable as BitmapDrawable).bitmap
         } else {
-            Log.d("bitmap","failed")
+            Log.d("bitmap", "failed")
         }
 
         try {
-            val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
-            , "share_image$title.png"
+            val file = File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+                "share_image$title.png"
             )
             Objects.requireNonNull(file.parentFile).mkdirs()
             val out = FileOutputStream(file)
             bitmap?.compress(Bitmap.CompressFormat.PNG, 90, out)
             out.close()
-            bitmapUri = Uri.fromFile(file)
             bitmapUri = FileProvider
                 .getUriForFile(
                     context, context.applicationContext
                         .packageName + ".provider", file
                 )
         } catch (e: IOException) {
-            e.printStackTrace();
+            e.printStackTrace()
         }
-        sharingFunction(bitmapUri,title)
+        sharingFunction(bitmapUri, title)
 
 
     }
-    private fun sharingFunction(bitmapUri: Uri?, bookTitle:String)
-    {
-        if (bitmapUri!=null)
-        {
+
+    private fun sharingFunction(bitmapUri: Uri?, bookTitle: String) {
+        if (bitmapUri != null) {
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.type = "text/plain"
@@ -63,10 +61,8 @@ class ImageSharing(private val context : Context, private val imageView: ImageVi
             shareIntent.type = "image/*"
 
             context.startActivity(Intent.createChooser(shareIntent, "Share Image"))
-        }
-        else
-        {
-            Log.d("bitmap uri","failed")
+        } else {
+            Log.d("bitmap uri", "failed")
         }
     }
 

@@ -1,6 +1,5 @@
 package com.example.book_search_kotlin
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
@@ -13,19 +12,19 @@ class BookDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_details)
 
-        val titleMain :TextView= findViewById(R.id.titleMain)
-        val publisher :TextView = findViewById(R.id.detailPublisher)
-        val pageNo :TextView= findViewById(R.id.pageNo)
-        val bookCoverImageView : ImageView= findViewById(R.id.bookCoverImageView)
-        val title :TextView= findViewById(R.id.title)
-        val imageShareButton :ImageButton= findViewById(R.id.imageShareButton)
-        val authorMain:TextView = findViewById(R.id.detailAuthor)
+        val titleMain: TextView = findViewById(R.id.titleMain)
+        val publisher: TextView = findViewById(R.id.detailPublisher)
+        val pageNo: TextView = findViewById(R.id.pageNo)
+        val bookCoverImageView: ImageView = findViewById(R.id.bookCoverImageView)
+        val title: TextView = findViewById(R.id.title)
+        val imageShareButton: ImageButton = findViewById(R.id.imageShareButton)
+        val authorMain: TextView = findViewById(R.id.detailAuthor)
 
-        title.text= intent.getStringExtra("title")
-        titleMain.text= intent.getStringExtra("title")
-        publisher.text= intent.getStringExtra("publisher")
-        pageNo.text=intent.getStringExtra("pageNo")
-        authorMain.text = intent .getStringExtra("author")
+        title.text = intent.getStringExtra("title")
+        titleMain.text = intent.getStringExtra("title")
+        publisher.text = intent.getStringExtra("publisher")
+        pageNo.text = intent.getStringExtra("pageNo")
+        authorMain.text = intent.getStringExtra("author")
 
         Glide.with(this)
             .load(intent.getStringExtra("imageUrl"))
@@ -33,14 +32,12 @@ class BookDetailsActivity : AppCompatActivity() {
             .error(R.drawable.error)
             .into(bookCoverImageView)
 
-        imageShareButton.setOnClickListener(){
-            val bitmap = ImageSharing(this@BookDetailsActivity,bookCoverImageView)
+        imageShareButton.setOnClickListener {
+            val bitmap = ImageSharing(this@BookDetailsActivity, bookCoverImageView)
             bitmap.getBitmapUrl(intent.getStringExtra("title").orEmpty())
 
 
         }
-
-
 
 
     }

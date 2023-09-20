@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <ImageView
-        android:contentDescription="bookCover"
+        android:contentDescription="@string/bookcover"
         android:id="@+id/bookCoverImageView"
         android:layout_width="100dp"
         android:layout_height="120dp"
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@+id/bookCoverImageView"
-        android:text="bookTitle"
-        android:textColor="#5A3B3B"
+        android:text="@string/bookTitl"
+        android:textColor="#FF4500"
         android:textSize="30sp" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/bookCoverImageView"
-        android:text="authorRecycler"
-        android:textColor="#5A3B3B"
+        android:text="@string/authorrecycler"
+        android:textColor="#FF4500"
         android:textSize="22sp" />
 </RelativeLayout>

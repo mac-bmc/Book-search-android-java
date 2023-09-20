@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private val paramUsername = "userName"
+    private var welcome="Welcome "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
@@ -16,12 +17,13 @@ class WelcomeActivity : AppCompatActivity() {
         val bookSearchBtn: Button=findViewById(R.id.bookSearchBtn)
         val logoutButton: Button=findViewById(R.id.logoutBtn)
         val username=intent.getStringExtra(paramUsername)
-        welcomeText.text = getString(R.string.welcome)+" "+username
-        bookSearchBtn.setOnClickListener(){
+        welcome += username
+        welcomeText.text = welcome
+        bookSearchBtn.setOnClickListener{
             val intent = Intent(this@WelcomeActivity,BookSearchActivity::class.java)
             startActivity(intent)
         }
-        logoutButton.setOnClickListener(){
+        logoutButton.setOnClickListener{
             val intent=Intent(this@WelcomeActivity,
                 LoginActivity::class.java)
             startActivity(intent)

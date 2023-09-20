@@ -22,8 +22,8 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="book_title"
-            android:textColor="#FFFFFF"
+            android:hint="@string/bookTitle"
+            android:textColor="#FF4500"
             android:textSize="25sp"
             android:visibility="visible" />
 
@@ -38,7 +38,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:autofillHints="hi"
-        android:contentDescription="searchImage"
+        android:contentDescription="@string/searchimage"
         app:srcCompat="@drawable/baseline_share_24"
         tools:ignore="ImageContrastCheck"
         tools:visibility="visible" />
@@ -50,7 +50,7 @@
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30sp"
-        android:contentDescription="coverImage"
+        android:contentDescription="@string/coverimage"
         android:scaleType="centerCrop"
         android:src="@drawable/placeholder_image" />
 
@@ -62,8 +62,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
-        android:hint="book_titles"
-        android:textColor="@color/black"
+        android:hint="@string/bookTtles"
+        android:textColor="#FF4500"
         android:textSize="35sp"
         android:visibility="visible" />
 
@@ -74,7 +74,8 @@
         android:layout_below="@id/titleMain"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5sp"
-        android:hint="author"
+        android:hint="@string/author"
+        android:textColor="#FF4500"
         android:textSize="25sp" />
 
     <LinearLayout
@@ -95,7 +96,8 @@
         android:layout_below="@id/line"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5sp"
-        android:text="published_by"
+        android:textColor="#FF4500"
+        android:text="@string/published_by"
         android:textSize="25sp" />
 
     <TextView
@@ -105,7 +107,8 @@
         android:layout_below="@+id/published"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5sp"
-        android:hint="publisher"
+        android:textColor="#FF4500"
+        android:hint="@string/publisher"
         android:textSize="25sp" />
 
     <TextView
@@ -114,7 +117,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailPublisher"
         android:layout_centerHorizontal="true"
-        android:text="no_of_pages"
+        android:textColor="#FF4500"
+        android:text="@string/no_of_pages"
         android:textSize="20sp" />
 
     <TextView
@@ -123,7 +127,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailPublisher"
         android:layout_toEndOf="@+id/pgPlaceholder"
-        android:hint="pg"
+        android:textColor="#FF4500"
+        android:hint="@string/pg"
         android:textSize="20sp" />
 
 

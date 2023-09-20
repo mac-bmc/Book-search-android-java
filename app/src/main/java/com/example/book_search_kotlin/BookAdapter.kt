@@ -11,26 +11,24 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHolder>(){
+class BookAdapter : RecyclerView.Adapter<BookAdapter.ViewHolder>() {
 
 
-    public var booksList: List<BookModel>?=null
-    private var bookModel : BookModel? = null
+    var booksList: List<BookModel>? = null
+    private var bookModel: BookModel? = null
 
     @SuppressLint("NotifyDataSetChanged")
-    public fun setBooks(books : List<BookModel>?)
-    {
-        this.booksList=books
+    fun setBooks(books: List<BookModel>?) {
+        this.booksList = books
         notifyDataSetChanged()
 
     }
 
-    public override fun onCreateViewHolder (parent: ViewGroup, viewType: Int): ViewHolder
-    {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context: Context = parent.context
         val inflater = LayoutInflater.from(context)
-        val bookView : View = inflater.inflate(R.layout.recyclerview,parent,false)
-        return ViewHolder(bookView,context)
+        val bookView: View = inflater.inflate(R.layout.recyclerview, parent, false)
+        return ViewHolder(bookView, context)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -52,20 +50,20 @@ class BookAdapter( context: Context) :  RecyclerView.Adapter<BookAdapter.ViewHol
     }
 
 
-   inner class ViewHolder(itemView: View,context: Context) : RecyclerView.ViewHolder(itemView) {
-        var titleTextView: TextView= itemView.findViewById(R.id.titleTextView)
-        var authorTextView: TextView=itemView.findViewById(R.id.authorTextView)
-        var coverImageView: ImageView=itemView.findViewById(R.id.bookCoverImageView)
-        lateinit var clickedItem: BookModel
+    inner class ViewHolder(itemView: View, context: Context) : RecyclerView.ViewHolder(itemView) {
+        var titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
+        var authorTextView: TextView = itemView.findViewById(R.id.authorTextView)
+        var coverImageView: ImageView = itemView.findViewById(R.id.bookCoverImageView)
+        private lateinit var clickedItem: BookModel
 
         init {
-            itemView.setOnClickListener(){
-                val position : Int = absoluteAdapterPosition
+            itemView.setOnClickListener {
+                val position: Int = absoluteAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    clickedItem  =booksList!!.get(position)
+                    clickedItem = booksList!![position]
                 }
                 //Log.d("ClickedItem","Item ${clickedItem.getCoverImage()} clicked")
-                val intent = Intent(context,BookDetailsActivity::class.java)
+                val intent = Intent(context, BookDetailsActivity::class.java)
                 intent.putExtra("title", clickedItem.title)
                 intent.putExtra("author", clickedItem.authorName?.get(0))
                 intent.putExtra("imageUrl", FetchData(clickedItem).getCoverImage())

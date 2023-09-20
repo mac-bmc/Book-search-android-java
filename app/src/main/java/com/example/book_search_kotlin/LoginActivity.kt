@@ -12,22 +12,24 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val usernameText : EditText = findViewById(R.id.usernameText)
-        val passwordText : EditText = findViewById(R.id.passwordText)
-        val loginButton  : Button = findViewById(R.id.loginbutton)
+        val usernameText: EditText = findViewById(R.id.usernameText)
+        val passwordText: EditText = findViewById(R.id.passwordText)
+        val loginButton: Button = findViewById(R.id.loginButton)
 
-        loginButton.setOnClickListener(){
+        loginButton.setOnClickListener {
             val login = Login()
-            val key: Boolean=login.LoginAuth(usernameText.text.toString(),passwordText.text.toString())
-            if(key)
-            {
-                val intent =Intent(this@LoginActivity,WelcomeActivity::class.java)
-                intent.putExtra("userName",usernameText.text.toString())
+            val key: Boolean =
+                login.loginAuth(usernameText.text.toString(), passwordText.text.toString())
+            if (key) {
+                val intent = Intent(this@LoginActivity, WelcomeActivity::class.java)
+                intent.putExtra("userName", usernameText.text.toString())
                 startActivity(intent)
-            }
-            else
-            {
-                Toast.makeText(this@LoginActivity,"Login Failed check credentials",Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    this@LoginActivity,
+                    "Login Failed check credentials",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
 

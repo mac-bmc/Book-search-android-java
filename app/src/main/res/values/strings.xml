@@ -7,4 +7,17 @@
     <string name="login">Login</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="bookTitle">book_title</string>
+    <string name="searchimage">searchImage</string>
+    <string name="coverimage">coverImage</string>
+    <string name="bookTtles">book_titles</string>
+    <string name="pg">pg</string>
+    <string name="no_of_pages">No of pages</string>
+    <string name="publisher">publisher</string>
+    <string name="published_by">published_by</string>
+    <string name="author">author</string>
+    <string name="search">search</string>
+    <string name="bookcover">bookCover</string>
+    <string name="bookTitl">bookTitle</string>
+    <string name="authorrecycler">authorRecycler</string>
 </resources>
