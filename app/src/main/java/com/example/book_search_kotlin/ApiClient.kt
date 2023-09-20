@@ -1,6 +1,8 @@
 package com.example.book_search_kotlin
 
 import android.content.Context
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,7 +17,7 @@ class ApiClient(private val context: Context) {
 
 
 
-     fun performBookSearch(query: String,bookAdapter : BookAdapter){
+     fun performBookSearch(query: String,bookAdapter : BookAdapter,progressBar: ProgressBar){
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -28,6 +30,7 @@ class ApiClient(private val context: Context) {
                 response: Response<SearchResponse?>
             ) {
                 if (response.isSuccessful) {
+                    progressBar.visibility= View.INVISIBLE
                     val books : List<BookModel>? = if (response.body() != null) response.body()!!.getBooks() else null
                     bookAdapter.setBooks(books)
                 } else {
