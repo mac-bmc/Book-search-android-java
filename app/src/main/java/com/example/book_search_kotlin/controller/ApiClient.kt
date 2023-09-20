@@ -1,9 +1,10 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.controller
 
 import android.content.Context
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.book_search_kotlin.model.BookModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,10 +1,11 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.book_search_kotlin.R
 
 class WelcomeActivity : AppCompatActivity() {
     private val paramUsername = "userName"
@@ -20,7 +21,7 @@ class WelcomeActivity : AppCompatActivity() {
         welcome += username
         welcomeText.text = welcome
         bookSearchBtn.setOnClickListener{
-            val intent = Intent(this@WelcomeActivity,BookSearchActivity::class.java)
+            val intent = Intent(this@WelcomeActivity, BookSearchActivity::class.java)
             startActivity(intent)
         }
         logoutButton.setOnClickListener{

@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.controller
 
 class Login {
     fun loginAuth(username: String, password: String): Boolean {

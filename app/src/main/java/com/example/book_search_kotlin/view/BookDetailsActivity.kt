@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.view
 
 import android.os.Bundle
 import android.widget.ImageButton
@@ -6,6 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.book_search_kotlin.controller.ImageSharing
+import com.example.book_search_kotlin.R
 
 class BookDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

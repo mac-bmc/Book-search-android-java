@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.controller
 
 import android.content.Context
 import android.content.Intent

@@ -1,4 +1,6 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.controller
+
+import com.example.book_search_kotlin.model.BookModel
 
 class FetchData(private val bookModel: BookModel) {
 

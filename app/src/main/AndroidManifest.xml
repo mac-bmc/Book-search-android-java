@@ -27,17 +27,17 @@
                 android:resource="@xml/provider_paths" />
         </provider>
         <activity
-            android:name=".BookDetailsActivity"
+            android:name=".view.BookDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".BookSearchActivity"
+            android:name=".view.BookSearchActivity"
             android:exported="false"/>
 
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".view.WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

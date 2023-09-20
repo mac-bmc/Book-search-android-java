@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.view
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.book_search_kotlin.controller.ApiClient
+import com.example.book_search_kotlin.controller.BookAdapter
+import com.example.book_search_kotlin.R
 
 class BookSearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
