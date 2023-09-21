@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/bookTitle"
-            android:textColor="#FF4500"
+            android:textColor="@color/PrimaryText"
             android:textSize="25sp"
             android:visibility="visible" />
 
@@ -63,7 +63,7 @@
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:hint="@string/bookTtles"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:textSize="35sp"
         android:visibility="visible" />
 
@@ -75,7 +75,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5sp"
         android:hint="@string/author"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:textSize="25sp" />
 
     <LinearLayout
@@ -96,7 +96,7 @@
         android:layout_below="@id/line"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5sp"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:text="@string/published_by"
         android:textSize="25sp" />
 
@@ -107,7 +107,7 @@
         android:layout_below="@+id/published"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5sp"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:hint="@string/publisher"
         android:textSize="25sp" />
 
@@ -117,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailPublisher"
         android:layout_centerHorizontal="true"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:text="@string/no_of_pages"
         android:textSize="20sp" />
 
@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/detailPublisher"
         android:layout_toEndOf="@+id/pgPlaceholder"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:hint="@string/pg"
         android:textSize="20sp" />
 

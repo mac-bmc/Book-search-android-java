@@ -13,7 +13,7 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/arbutus"
         android:text="@string/bookSearchApplication"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:textSize="23sp" />
 
     <TextView
@@ -59,8 +59,8 @@
         android:layout_marginTop="51dp"
         android:text="@string/login"
         android:textColor="@color/white"
-        android:textColorHighlight="#6C4B4B"
-        android:textColorLink="#6C4B4B"
+        android:textColorHighlight="@color/SecondaryText"
+        android:textColorLink="@color/SecondaryText"
         android:textSize="20sp" />
 
 </RelativeLayout>

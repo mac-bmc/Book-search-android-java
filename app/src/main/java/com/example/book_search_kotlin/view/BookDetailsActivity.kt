@@ -5,14 +5,15 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
+import com.example.book_search_kotlin.Manifest
 import com.example.book_search_kotlin.controller.ImageSharing
 import com.example.book_search_kotlin.R
 
-class BookDetailsActivity : AppCompatActivity() {
+class BookDetailsActivity : AppCompatActivity(R.layout.activity_book_details) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_book_details)
 
         val titleMain: TextView = findViewById(R.id.titleMain)
         val publisher: TextView = findViewById(R.id.detailPublisher)

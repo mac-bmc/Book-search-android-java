@@ -21,7 +21,7 @@
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@+id/bookCoverImageView"
         android:text="@string/bookTitl"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:textSize="30sp" />
 
     <TextView
@@ -33,6 +33,6 @@
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/bookCoverImageView"
         android:text="@string/authorrecycler"
-        android:textColor="#FF4500"
+        android:textColor="@color/PrimaryText"
         android:textSize="22sp" />
 </RelativeLayout>

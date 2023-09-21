@@ -7,12 +7,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.book_search_kotlin.R
 
-class WelcomeActivity : AppCompatActivity() {
+class WelcomeActivity : AppCompatActivity(R.layout.activity_welcome) {
     private val paramUsername = "userName"
     private var welcome="Welcome "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+        
 
         val welcomeText: TextView=findViewById(R.id.home)
         val bookSearchBtn: Button=findViewById(R.id.bookSearchBtn)

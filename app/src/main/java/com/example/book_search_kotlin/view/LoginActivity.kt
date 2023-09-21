@@ -9,10 +9,10 @@ import android.widget.Toast
 import com.example.book_search_kotlin.controller.Login
 import com.example.book_search_kotlin.R
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(R.layout.activity_login) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+
 
         val usernameText: EditText = findViewById(R.id.usernameText)
         val passwordText: EditText = findViewById(R.id.passwordText)

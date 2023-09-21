@@ -14,10 +14,9 @@ import com.example.book_search_kotlin.controller.ApiClient
 import com.example.book_search_kotlin.controller.BookAdapter
 import com.example.book_search_kotlin.R
 
-class BookSearchActivity : AppCompatActivity() {
+class BookSearchActivity : AppCompatActivity(R.layout.activity_book_search) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_book_search)
 
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val bookAdapter = BookAdapter()
