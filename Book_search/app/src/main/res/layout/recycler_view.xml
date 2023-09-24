@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
     <ImageView
+        android:contentDescription="@string/bookCover"
         android:id="@+id/bookCoverImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -17,19 +17,19 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_toEndOf="@+id/bookCoverImageView"
-        android:text="Book Title"
-        android:layout_marginLeft="10dp"
-        android:textSize="30dp" />
+        android:text="@string/bookTitle"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/authorTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/bookCoverImageView"
-        android:layout_below="@id/titleTextView"
-        android:layout_marginLeft="10dp"
-        android:text="Author"
-        android:textSize="20dp" />
+        android:text="@string/authorRecycler"
+        android:textSize="20sp" />
 </RelativeLayout>

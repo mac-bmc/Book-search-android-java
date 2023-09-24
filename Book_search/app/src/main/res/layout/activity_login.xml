@@ -1,57 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/signInText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign in"
-        android:textSize="30dp"
-        android:textColor="@color/black"
-        android:id="@+id/signintext"
         android:layout_margin="50dp"
         android:gravity="center"
-        />
+        android:text="@string/signIn"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
 
     <EditText
-        android:id="@+id/usrnametext"
-        android:textSize="24dp"
+        android:id="@+id/usernameText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/signintext"
+        android:layout_below="@+id/signInText"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="Username"
+        android:hint="@string/usernameXml"
+        android:inputType="text"
         android:padding="10dp"
-        android:inputType="text"/>
+        android:textSize="24sp"
+        android:autofillHints="Username"
+        tools:ignore="VisualLintTextFieldSize" />
+
     <EditText
-        android:id="@+id/passtext"
-        android:textSize="24dp"
-        android:inputType="textPassword"
+        android:id="@+id/passText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/usrnametext"
+        android:layout_below="@+id/usernameText"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:hint="Password"
-        android:padding="10dp" />
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textSize="24sp"
+        android:autofillHints="Password"
+        tools:ignore="VisualLintTextFieldSize" />
 
     <Button
+        android:id="@+id/SignInBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passtext"
+        android:layout_below="@+id/passText"
         android:layout_centerHorizontal="true"
-        android:id="@+id/Signinbtn"
-        android:text="Login"/>
-
+        android:text="@string/login" />
 
 
 </RelativeLayout>

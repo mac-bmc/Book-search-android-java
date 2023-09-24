@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     tools:context=".BookHomeActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -20,19 +20,21 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
+            android:id="@+id/searchres"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Book search"
-            android:id="@+id/searchres"
+            android:text="@string/bookSearch"
             android:textColor="#FFFFFF"
             android:textSize="25sp" />
+
         <ImageButton
+            android:id="@+id/search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="Search"
-            android:layout_marginLeft="150dp"
+            android:layout_marginStart="150dp"
+            android:contentDescription="@string/search"
             app:srcCompat="@drawable/baseline_search_24"
-            android:id="@+id/search"/>
+            tools:ignore="ImageContrastCheck" />
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -40,9 +42,9 @@
     <!-- SearchView for user input -->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
-        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
         android:queryHint="Search for books"
         android:visibility="invisible"
         app:iconifiedByDefault="false" />
