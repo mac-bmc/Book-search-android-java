@@ -5,9 +5,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
-import com.example.book_search_kotlin.Manifest
 import com.example.book_search_kotlin.controller.ImageSharing
 import com.example.book_search_kotlin.R
 

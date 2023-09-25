@@ -12,7 +12,7 @@ class WelcomeActivity : AppCompatActivity(R.layout.activity_welcome) {
     private var welcome="Welcome "
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
 
         val welcomeText: TextView=findViewById(R.id.home)
         val bookSearchBtn: Button=findViewById(R.id.bookSearchBtn)
