@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.content.FileProvider
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.book_search_kotlin.controller.ApiInterface
@@ -30,11 +31,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.util.Objects
 
-class BookViewModel: ViewModel() {
-    private val baseUrl: String = "https://openlibrary.org/"
-    private lateinit var openLibraryApi: ApiInterface
-
-
+class BookViewModel : ViewModel() {
 
     inner class ApiClient(private val context: Context) {
 
@@ -43,6 +40,7 @@ class BookViewModel: ViewModel() {
 
 
         fun performBookSearch(query: String, bookAdapter: BookAdapter, progressBar: ProgressBar) {
+            var books: List<BookModel>?
             viewModelScope.launch(Dispatchers.IO)
             {
                 val retrofit: Retrofit = Retrofit.Builder()
@@ -58,7 +56,7 @@ class BookViewModel: ViewModel() {
                     ) {
                         if (response.isSuccessful) {
                             progressBar.visibility = View.INVISIBLE
-                            val books: List<BookModel>? =
+                            books =
                                 if (response.body() != null) response.body()!!.getBooks() else null
                             bookAdapter.setBooks(books)
                         } else {
@@ -82,7 +80,7 @@ class BookViewModel: ViewModel() {
 
     }
 
-   inner class FetchData(private val bookModel: BookModel) {
+    inner class FetchData(private val bookModel: BookModel) {
 
         fun getCoverImage(): String {
 
@@ -117,7 +115,8 @@ class BookViewModel: ViewModel() {
         }
 
     }
-   inner class ImageSharing(private val context: Context, private val imageView: ImageView) {
+
+    inner class ImageSharing(private val context: Context, private val imageView: ImageView) {
         fun getBitmapUrl(title: String) {
             val drawable = imageView.drawable
             var bitmap: Bitmap? = null
@@ -171,6 +170,7 @@ class BookViewModel: ViewModel() {
 
 
     }
+
     inner class Login {
         fun loginAuth(username: String, password: String): Boolean {
             var key = false
