@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.book_search_kotlin.controller.BookAdapter
+import com.example.book_search_kotlin.BookAdapter
 import com.example.book_search_kotlin.R
 import com.example.book_search_kotlin.viewmodel.BookViewModel
 

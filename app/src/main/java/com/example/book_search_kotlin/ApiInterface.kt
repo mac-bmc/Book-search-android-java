@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin.controller
+package com.example.book_search_kotlin
 
 import retrofit2.Call
 import retrofit2.http.GET

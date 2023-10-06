@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin.controller
+package com.example.book_search_kotlin
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,7 +10,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.book_search_kotlin.R
 import com.example.book_search_kotlin.model.BookModel
 import com.example.book_search_kotlin.view.BookDetailsActivity
 import com.example.book_search_kotlin.viewmodel.BookViewModel

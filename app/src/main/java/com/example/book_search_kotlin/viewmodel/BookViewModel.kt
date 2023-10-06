@@ -12,12 +12,11 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.content.FileProvider
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.book_search_kotlin.controller.ApiInterface
-import com.example.book_search_kotlin.controller.BookAdapter
-import com.example.book_search_kotlin.controller.SearchResponse
+import com.example.book_search_kotlin.ApiInterface
+import com.example.book_search_kotlin.BookAdapter
+import com.example.book_search_kotlin.SearchResponse
 import com.example.book_search_kotlin.model.BookModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
