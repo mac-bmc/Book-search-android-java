@@ -57,7 +57,7 @@ class BookDetailsViewModel(application: Application) : AndroidViewModel(applicat
             shareIntent.type = "text/plain"
             shareIntent.putExtra(
                 Intent.EXTRA_TEXT,
-                "Check out this book: $bookTitle"
+                "Check out this book : $bookTitle"
             )
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, bookTitle)
             shareIntent.putExtra(Intent.EXTRA_STREAM, bitmapUri)
