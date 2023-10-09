@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.model
 
 import com.example.book_search_kotlin.model.BookModel
 

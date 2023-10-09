@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.model
 
 import retrofit2.Call
 import retrofit2.http.GET

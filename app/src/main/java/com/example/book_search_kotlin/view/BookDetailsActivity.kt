@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.book_search_kotlin.R
-import com.example.book_search_kotlin.viewmodel.BookViewModel
+import com.example.book_search_kotlin.viewmodel.BookDetailsViewModel
 
 class BookDetailsActivity : AppCompatActivity(R.layout.activity_book_details) {
 
-    private lateinit var bookViewModel: BookViewModel
+    private lateinit var bookDetailsViewModel: BookDetailsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,8 +29,10 @@ class BookDetailsActivity : AppCompatActivity(R.layout.activity_book_details) {
         publisher.text = intent.getStringExtra("publisher")
         pageNo.text = intent.getStringExtra("pageNo")
         authorMain.text = intent.getStringExtra("author")
-        bookViewModel = ViewModelProvider(
-            this,).get(BookViewModel::class.java)
+        bookDetailsViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory(application)
+        ).get(BookDetailsViewModel::class.java)
 
         Glide.with(this)
             .load(intent.getStringExtra("imageUrl"))
@@ -39,8 +41,7 @@ class BookDetailsActivity : AppCompatActivity(R.layout.activity_book_details) {
             .into(bookCoverImageView)
 
         imageShareButton.setOnClickListener {
-            val bitmap = bookViewModel.ImageSharing(this@BookDetailsActivity, bookCoverImageView)
-            bitmap.getBitmapUrl(intent.getStringExtra("title").orEmpty())
+            bookDetailsViewModel.getBitmapUrl(intent.getStringExtra("title").orEmpty(),bookCoverImageView,this@BookDetailsActivity)
 
 
         }

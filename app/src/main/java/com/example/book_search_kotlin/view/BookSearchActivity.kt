@@ -11,19 +11,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.book_search_kotlin.BookAdapter
 import com.example.book_search_kotlin.R
-import com.example.book_search_kotlin.viewmodel.BookViewModel
+import com.example.book_search_kotlin.viewmodel.BookSearchViewModel
 
 class BookSearchActivity : AppCompatActivity(R.layout.activity_book_search) {
-    private lateinit var bookViewModel: BookViewModel
+    private lateinit var bookSearchViewModel: BookSearchViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        bookViewModel = ViewModelProvider(
-            this,).get(BookViewModel::class.java)
-        val bookAdapter = BookAdapter(bookViewModel)
+        bookSearchViewModel = ViewModelProvider(
+            this,).get(BookSearchViewModel::class.java)
+        val bookAdapter = BookAdapter(bookSearchViewModel)
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = bookAdapter
 
@@ -42,8 +41,7 @@ class BookSearchActivity : AppCompatActivity(R.layout.activity_book_search) {
             override fun onQueryTextSubmit(query: String): Boolean {
                 searchRes.text = query
                 progressBar.visibility = View.VISIBLE
-                val apiClient = bookViewModel.ApiClient(this@BookSearchActivity)
-                apiClient.performBookSearch(query, bookAdapter, progressBar)
+               bookSearchViewModel.performBookSearch(this@BookSearchActivity,query, bookAdapter, progressBar)
                 Log.d("After book search", query)
 
                 return true

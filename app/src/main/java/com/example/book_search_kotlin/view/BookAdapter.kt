@@ -1,4 +1,4 @@
-package com.example.book_search_kotlin
+package com.example.book_search_kotlin.view
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,16 +10,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.book_search_kotlin.R
 import com.example.book_search_kotlin.model.BookModel
-import com.example.book_search_kotlin.view.BookDetailsActivity
-import com.example.book_search_kotlin.viewmodel.BookViewModel
+import com.example.book_search_kotlin.viewmodel.BookSearchViewModel
 
-class BookAdapter(bookViewModel: BookViewModel) : RecyclerView.Adapter<BookAdapter.ViewHolder>() {
+class BookAdapter(bookSearchViewModel: BookSearchViewModel) : RecyclerView.Adapter<BookAdapter.ViewHolder>() {
 
 
     var booksList: List<BookModel>? = null
     private var bookModel: BookModel? = null
-    private val viewModel=bookViewModel
+    private val viewModel=bookSearchViewModel
 
     @SuppressLint("NotifyDataSetChanged")
     fun setBooks(books: List<BookModel>?) {
@@ -54,7 +54,7 @@ class BookAdapter(bookViewModel: BookViewModel) : RecyclerView.Adapter<BookAdapt
     }
 
 
-    inner class ViewHolder(itemView: View, context: Context,viewModel: BookViewModel) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View, context: Context,viewModel: BookSearchViewModel) : RecyclerView.ViewHolder(itemView) {
         var titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
         var authorTextView: TextView = itemView.findViewById(R.id.authorTextView)
         var coverImageView: ImageView = itemView.findViewById(R.id.bookCoverImageView)
